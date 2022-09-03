@@ -20,9 +20,9 @@ namespace FantasyRPGFutureValueMultiForm
                     long monthlyInvestmentGold = long.Parse(txtMonthlyGold.Text, NumberStyles.Number);
                     long monthlyInvestmentSilver = long.Parse(txtMonthlySilver.Text, NumberStyles.Number);
                     long monthlyInvestmentCopper = long.Parse(txtMonthlyCopper.Text, NumberStyles.Number);
-                    decimal interestRate = decimal.Parse(txtInterestRate.Text, NumberStyles.Number);
-                    int years = int.Parse(txtYears.Text, NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
-                    int monthsPerYear = int.Parse(txtMonths.Text, NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
+                    decimal interestRate = decimal.Parse(txtRate.Text, NumberStyles.Number); ;
+                    int years = int.Parse(cboYears.SelectedItem.ToString(), NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
+                    int monthsPerYear = int.Parse(cboMonths.SelectedItem.ToString(), NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
 
                     decimal monthlyInvestment = MonthlyInvestmentDecimal(monthlyInvestmentGold, monthlyInvestmentSilver, monthlyInvestmentCopper);
 
@@ -107,14 +107,8 @@ namespace FantasyRPGFutureValueMultiForm
             errorMessage += IsDecimal(txtMonthlyCopper.Text, txtMonthlyCopper.Tag.ToString());
             errorMessage += IsWithinRange(txtMonthlyCopper.Text, txtMonthlyCopper.Tag.ToString(), 0, 100000);
 
-            errorMessage += IsDecimal(txtInterestRate.Text, txtInterestRate.Tag.ToString());
-            errorMessage += IsWithinRange(txtInterestRate.Text, txtInterestRate.Tag.ToString(), 1, 20);
-
-            errorMessage += IsInt32(txtYears.Text, txtYears.Tag.ToString());
-            errorMessage += IsWithinRange(txtYears.Text, txtYears.Tag.ToString(), 1, 100);
-
-            errorMessage += IsInt32(txtMonths.Text, txtMonths.Tag.ToString());
-            errorMessage += IsWithinRange(txtMonths.Text, txtMonths.Tag.ToString(), 1, 20);
+            errorMessage += IsDecimal(txtRate.Text, txtRate.Tag.ToString());
+            errorMessage += IsWithinRange(txtRate.Text, txtRate.Tag.ToString(), 1, 20);
 
             if (errorMessage != "")
             {
@@ -167,15 +161,38 @@ namespace FantasyRPGFutureValueMultiForm
         {
             string msg = "";
 
-            msg = "Monthly Gold \tMonthly Silver \tMonthly Copper \tInt Rate \tYears \tMonths Per Year \tGold \tSilver \tCopper\n";
-
-            foreach (var list in values)
+            if (values.Count > 0)
             {
-                msg += list.Item1 + " \t" + list.Item2 + " \t" + list.Item3 + " \t" + list.Item4 + " \t" + list.Item5 + " \t" + list.Item6 + " \t" + list.Item7 + "\t" + list.Item8 + "\t" + list.Item9 + "\n";
-            }
+                for (int i = 0; i < values.Count; i++)
+                {
+                    msg += "Monthly Gold \tMonthly Silver \tMonthly Copper \tInt Rate \tYears \tMonths Per Year \tGold \tSilver \tCopper\n";
 
-            MessageBox.Show(msg, "Future Value Calculations");
+                    msg += values[i].Item1 + " \t" + values[i].Item2 + " \t" + values[i].Item3 + " \t" + values[i].Item4 + " \t" + values[i].Item5 + " \t" + values[i].Item6 + " \t" + values[i].Item7 + "\t" + values[i].Item8 + "\t" + values[i].Item9 + "\n";
+                }
+
+                this.Tag = msg;
+            }
+            else
+            {
+                this.Tag = null;
+            }
+            this.DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void frmFutureValue_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 101; i++)
+            {
+                cboYears.Items.Add(i);
+            }
+            cboYears.SelectedIndex = 0;
+
+            for (int i = 0; i < 21; i++)
+            {
+                cboMonths.Items.Add(i);
+            }
+            cboMonths.SelectedIndex = 12;
         }
     }
 }

@@ -40,15 +40,15 @@
             this.txtMonthlyGold = new System.Windows.Forms.TextBox();
             this.txtMonthlySilver = new System.Windows.Forms.TextBox();
             this.txtMonthlyCopper = new System.Windows.Forms.TextBox();
-            this.txtInterestRate = new System.Windows.Forms.TextBox();
-            this.txtYears = new System.Windows.Forms.TextBox();
-            this.txtMonths = new System.Windows.Forms.TextBox();
             this.txtValueGold = new System.Windows.Forms.TextBox();
             this.txtValueSilver = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtValueCopper = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cboYears = new System.Windows.Forms.ComboBox();
+            this.cboMonths = new System.Windows.Forms.ComboBox();
+            this.txtRate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -157,30 +157,6 @@
             this.txtMonthlyCopper.TabIndex = 3;
             this.txtMonthlyCopper.Tag = "Monthly Copper";
             // 
-            // txtInterestRate
-            // 
-            this.txtInterestRate.Location = new System.Drawing.Point(277, 148);
-            this.txtInterestRate.Name = "txtInterestRate";
-            this.txtInterestRate.Size = new System.Drawing.Size(100, 23);
-            this.txtInterestRate.TabIndex = 4;
-            this.txtInterestRate.Tag = "Annual Interest Rate";
-            // 
-            // txtYears
-            // 
-            this.txtYears.Location = new System.Drawing.Point(277, 189);
-            this.txtYears.Name = "txtYears";
-            this.txtYears.Size = new System.Drawing.Size(100, 23);
-            this.txtYears.TabIndex = 5;
-            this.txtYears.Tag = "Number of Years";
-            // 
-            // txtMonths
-            // 
-            this.txtMonths.Location = new System.Drawing.Point(277, 225);
-            this.txtMonths.Name = "txtMonths";
-            this.txtMonths.Size = new System.Drawing.Size(100, 23);
-            this.txtMonths.TabIndex = 6;
-            this.txtMonths.Tag = "Number of Months per Year";
-            // 
             // txtValueGold
             // 
             this.txtValueGold.Location = new System.Drawing.Point(277, 260);
@@ -219,7 +195,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(146, 371);
+            this.btnCalculate.Location = new System.Drawing.Point(113, 371);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
             this.btnCalculate.TabIndex = 10;
@@ -237,6 +213,31 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // cboYears
+            // 
+            this.cboYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboYears.FormattingEnabled = true;
+            this.cboYears.Location = new System.Drawing.Point(277, 189);
+            this.cboYears.Name = "cboYears";
+            this.cboYears.Size = new System.Drawing.Size(100, 23);
+            this.cboYears.TabIndex = 14;
+            // 
+            // cboMonths
+            // 
+            this.cboMonths.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMonths.FormattingEnabled = true;
+            this.cboMonths.Location = new System.Drawing.Point(277, 225);
+            this.cboMonths.Name = "cboMonths";
+            this.cboMonths.Size = new System.Drawing.Size(100, 23);
+            this.cboMonths.TabIndex = 15;
+            // 
+            // txtRate
+            // 
+            this.txtRate.Location = new System.Drawing.Point(277, 148);
+            this.txtRate.Name = "txtRate";
+            this.txtRate.Size = new System.Drawing.Size(100, 23);
+            this.txtRate.TabIndex = 16;
+            // 
             // frmFutureValue
             // 
             this.AcceptButton = this.btnCalculate;
@@ -244,15 +245,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(408, 415);
+            this.Controls.Add(this.txtRate);
+            this.Controls.Add(this.cboMonths);
+            this.Controls.Add(this.cboYears);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txtValueCopper);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtValueSilver);
             this.Controls.Add(this.txtValueGold);
-            this.Controls.Add(this.txtMonths);
-            this.Controls.Add(this.txtYears);
-            this.Controls.Add(this.txtInterestRate);
             this.Controls.Add(this.txtMonthlyCopper);
             this.Controls.Add(this.txtMonthlySilver);
             this.Controls.Add(this.txtMonthlyGold);
@@ -286,14 +287,14 @@
         private TextBox txtMonthlyGold;
         private TextBox txtMonthlySilver;
         private TextBox txtMonthlyCopper;
-        private TextBox txtInterestRate;
-        private TextBox txtYears;
-        private TextBox txtMonths;
         private TextBox txtValueGold;
         private TextBox txtValueSilver;
         private Label label10;
         private TextBox txtValueCopper;
         private Button btnCalculate;
         private Button btnExit;
+        private ComboBox cboYears;
+        private ComboBox cboMonths;
+        private TextBox txtRate;
     }
 }
