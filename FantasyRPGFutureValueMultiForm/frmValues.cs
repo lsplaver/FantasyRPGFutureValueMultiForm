@@ -12,6 +12,9 @@ namespace FantasyRPGFutureValueMultiForm
 {
     public partial class frmValues : Form
     {
+
+        private List<(string, string, string, string, string, string, string, string, string)> values = new();
+
         public frmValues()
         {
             InitializeComponent();
@@ -28,7 +31,6 @@ namespace FantasyRPGFutureValueMultiForm
             DialogResult result = futureValuesForm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                List<(string, string, string, string, string, string, string, string, string)> values = new();
                 if (futureValuesForm.Tag != null && (futureValuesForm.Tag.ToString() != null && futureValuesForm.Tag.ToString() != ""))
                 {
                     string[] temp = futureValuesForm.Tag.ToString().Split("\n");

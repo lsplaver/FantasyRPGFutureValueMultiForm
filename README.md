@@ -11,3 +11,10 @@ Version 1
 * Added second form to the app which displays the calculated values
 * Using a richtextbox for displaying the values
 * Switched Years and Months textboxes for comboboxes
+
+Version 1.5
+* Fixed: frmCalculator load event
+* Fixed: txtRate missing tag property
+* Changed int years and monthsPerYear to use SelectedIndex to prevent possible null warning
+* Updated frmCalculator tab order
+* Moved the List<> variable to be a global variable

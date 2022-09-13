@@ -138,7 +138,7 @@
             this.txtMonthlyGold.Location = new System.Drawing.Point(277, 36);
             this.txtMonthlyGold.Name = "txtMonthlyGold";
             this.txtMonthlyGold.Size = new System.Drawing.Size(100, 23);
-            this.txtMonthlyGold.TabIndex = 1;
+            this.txtMonthlyGold.TabIndex = 0;
             this.txtMonthlyGold.Tag = "Monthly Gold";
             // 
             // txtMonthlySilver
@@ -146,7 +146,7 @@
             this.txtMonthlySilver.Location = new System.Drawing.Point(277, 73);
             this.txtMonthlySilver.Name = "txtMonthlySilver";
             this.txtMonthlySilver.Size = new System.Drawing.Size(100, 23);
-            this.txtMonthlySilver.TabIndex = 2;
+            this.txtMonthlySilver.TabIndex = 1;
             this.txtMonthlySilver.Tag = "Monthly Silver";
             // 
             // txtMonthlyCopper
@@ -154,7 +154,7 @@
             this.txtMonthlyCopper.Location = new System.Drawing.Point(277, 109);
             this.txtMonthlyCopper.Name = "txtMonthlyCopper";
             this.txtMonthlyCopper.Size = new System.Drawing.Size(100, 23);
-            this.txtMonthlyCopper.TabIndex = 3;
+            this.txtMonthlyCopper.TabIndex = 2;
             this.txtMonthlyCopper.Tag = "Monthly Copper";
             // 
             // txtValueGold
@@ -163,7 +163,7 @@
             this.txtValueGold.Name = "txtValueGold";
             this.txtValueGold.ReadOnly = true;
             this.txtValueGold.Size = new System.Drawing.Size(100, 23);
-            this.txtValueGold.TabIndex = 7;
+            this.txtValueGold.TabIndex = 8;
             this.txtValueGold.Tag = "Total Gold";
             // 
             // txtValueSilver
@@ -172,7 +172,7 @@
             this.txtValueSilver.Name = "txtValueSilver";
             this.txtValueSilver.ReadOnly = true;
             this.txtValueSilver.Size = new System.Drawing.Size(100, 23);
-            this.txtValueSilver.TabIndex = 8;
+            this.txtValueSilver.TabIndex = 9;
             this.txtValueSilver.Tag = "Total Silver";
             // 
             // label10
@@ -190,7 +190,7 @@
             this.txtValueCopper.Name = "txtValueCopper";
             this.txtValueCopper.ReadOnly = true;
             this.txtValueCopper.Size = new System.Drawing.Size(100, 23);
-            this.txtValueCopper.TabIndex = 9;
+            this.txtValueCopper.TabIndex = 10;
             this.txtValueCopper.Tag = "Total Copper";
             // 
             // btnCalculate
@@ -198,7 +198,7 @@
             this.btnCalculate.Location = new System.Drawing.Point(113, 371);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
-            this.btnCalculate.TabIndex = 10;
+            this.btnCalculate.TabIndex = 6;
             this.btnCalculate.Text = "&Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
@@ -208,7 +208,7 @@
             this.btnExit.Location = new System.Drawing.Point(302, 371);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 11;
+            this.btnExit.TabIndex = 7;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -220,7 +220,7 @@
             this.cboYears.Location = new System.Drawing.Point(277, 189);
             this.cboYears.Name = "cboYears";
             this.cboYears.Size = new System.Drawing.Size(100, 23);
-            this.cboYears.TabIndex = 14;
+            this.cboYears.TabIndex = 4;
             // 
             // cboMonths
             // 
@@ -229,14 +229,15 @@
             this.cboMonths.Location = new System.Drawing.Point(277, 225);
             this.cboMonths.Name = "cboMonths";
             this.cboMonths.Size = new System.Drawing.Size(100, 23);
-            this.cboMonths.TabIndex = 15;
+            this.cboMonths.TabIndex = 5;
             // 
             // txtRate
             // 
             this.txtRate.Location = new System.Drawing.Point(277, 148);
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(100, 23);
-            this.txtRate.TabIndex = 16;
+            this.txtRate.TabIndex = 3;
+            this.txtRate.Tag = "Annual Interest Rate";
             // 
             // frmFutureValue
             // 
@@ -268,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmFutureValue";
             this.Text = "Fantasy RPG Future Value Calculator";
+            this.Load += new System.EventHandler(this.frmFutureValue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

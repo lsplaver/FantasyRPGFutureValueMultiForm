@@ -20,9 +20,11 @@ namespace FantasyRPGFutureValueMultiForm
                     long monthlyInvestmentGold = long.Parse(txtMonthlyGold.Text, NumberStyles.Number);
                     long monthlyInvestmentSilver = long.Parse(txtMonthlySilver.Text, NumberStyles.Number);
                     long monthlyInvestmentCopper = long.Parse(txtMonthlyCopper.Text, NumberStyles.Number);
-                    decimal interestRate = decimal.Parse(txtRate.Text, NumberStyles.Number); ;
-                    int years = int.Parse(cboYears.SelectedItem.ToString(), NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
-                    int monthsPerYear = int.Parse(cboMonths.SelectedItem.ToString(), NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
+                    decimal interestRate = decimal.Parse(txtRate.Text, NumberStyles.Number);
+                    // int years = int.Parse(cboYears.SelectedItem.ToString(), NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
+                    int years = cboYears.SelectedIndex + 1;
+                    // int monthsPerYear = int.Parse(cboMonths.SelectedItem.ToString(), NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite);
+                    int monthsPerYear = cboMonths.SelectedIndex + 1;
 
                     decimal monthlyInvestment = MonthlyInvestmentDecimal(monthlyInvestmentGold, monthlyInvestmentSilver, monthlyInvestmentCopper);
 
@@ -177,22 +179,22 @@ namespace FantasyRPGFutureValueMultiForm
                 this.Tag = null;
             }
             this.DialogResult = DialogResult.OK;
-            Close();
+            this.Close();
         }
 
         private void frmFutureValue_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 101; i++)
+            for (int i = 1; i < 101; i++)
             {
                 cboYears.Items.Add(i);
             }
-            cboYears.SelectedIndex = 0;
+            cboYears.SelectedItem = 1;
 
-            for (int i = 0; i < 21; i++)
+            for (int i = 1; i < 21; i++)
             {
                 cboMonths.Items.Add(i);
             }
-            cboMonths.SelectedIndex = 12;
+            cboMonths.SelectedItem = 12;
         }
     }
 }
